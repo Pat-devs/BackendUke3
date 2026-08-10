@@ -4,10 +4,13 @@ class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine(Person.Name);
-        // Console.WriteLine(Person.age);
+        Person personJohn = new Person("John", 20); // invoke the constructor of the person class
 
-        Person.Greeter();
+        personJohn.InstanceGreeter();
+
+        Person personAnna = new Person("Anna", 30);
+
+        personAnna.InstanceGreeter();
     }
 }
 
