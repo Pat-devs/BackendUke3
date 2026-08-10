@@ -4,17 +4,10 @@ class Program
 {
     static void Main(string[] args)
     {
-        Greeter();
-
-        //
-        //Console.WriteLine(Person);
+        Console.WriteLine(Person.Name);
+        // Console.WriteLine(Person.age);
 
         Person.Greeter();
-    }
-    // static greeter method that uses a built in method to do something
-    static void Greeter()
-    {
-        Console.WriteLine("Hello i belong to the main program class.");
     }
 }
 
