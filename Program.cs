@@ -4,53 +4,34 @@ class Program
 {
     static void Main(string[] args)
     {
-        // example overloads
-        // Console.WriteLine(1);
-        // Console.WriteLine(0.5);
-        // Console.WriteLine("text");
+        Greeter();
 
-        // invoke greeter method without any arguments
-        Greeter(); 
-        // invoke greeter method with a number argument
-        Greeter(1);
-        // invoke greeter method with a string argument
-        Greeter("God morgen!");
-        // invoke greeter method with a string argument
-        Greeter(0.25);
+        //
+        //Console.WriteLine(Person);
 
-        Greeter("Patryk", "How are you?");
-        Greeter(1234, "How are you?");
+        Person.Greeter();
     }
-    // greeter method
+    // static greeter method that uses a built in method to do something
     static void Greeter()
     {
-        Console.WriteLine("Hello world!");
+        Console.WriteLine("Hello i belong to the main program class.");
     }
-    // an overload of greeter that takes one (string) argument
-    static void Greeter(string customGreeting)
+}
+
+
+class Person
+{
+    // by default methods are inaccessible outside of the class (use for example public to make them accessible from outside)
+    public static void Greeter()
     {
-        Console.WriteLine(customGreeting);
-    }
-    // an overload of greeter that takes one (int) argument
-    static void Greeter(int number)
-    {
-        Console.WriteLine(number);
-    }
-    // an overload of greeter that takes one (double) argument
-    static void Greeter(double number)
-    {
-        Console.WriteLine(number);
+        Console.WriteLine("Hi, i am a person");
+
+        TestMethod();
     }
 
-    // an overload that takes two arguments
-    static void Greeter(string userName, string greetingText)
+    // this method is inaccessible from outside, but accessible from within Person-class or its other methods.
+    static void TestMethod()
     {
-        Console.WriteLine(userName);
-        Console.Write(greetingText);
-    }
-    static void Greeter(int userId, string greetingText)
-    {
-        Console.WriteLine(userId);
-        Console.Write(greetingText);
+        Console.WriteLine("Internal test method running :)");
     }
 }
