@@ -2,8 +2,8 @@ class Person
 {
     // "variables that belong to a class" are refered to as "properties"
 
-    public string Name = "Patryk"; // PascalCase for public properties
-    private int age = 46;
+    public string Name { get; set; } // variables have special get & set methods (to be explained later this week :)
+    private int age { get; set; }
 
     // constructor method is a special method that runs when we create an instance of the class. It is used to configure (or give data to) the instance we create with the new keyword.
     public Person(string name, int _age) // a constructor method does not have return value nor type
