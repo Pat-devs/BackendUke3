@@ -4,37 +4,7 @@ class Program
 {
     static void Main(string[] args)
     {
-
-        // Basic write to file example:
-
-        //List<string> testList = new List<string>(); 
-        // testList.Add("hei");
-
-        //File.WriteAllLines("myfile.txt", testList);
-
-        // Basic read from file 
-        // first check if file exists
-        if (File.Exists("somefile.txt"))
-        {
-            string[] fileContents = File.ReadAllLines("somefile.txt");
-            
-            foreach (string item in fileContents)
-            {
-                Console.WriteLine(item);
-            }
-
-        }
-        else
-        {
-            Console.WriteLine("File does not exist!");
-        }
-
-        
-
-        Console.ReadLine();
-
-
-
+        string fileName = "tags.txt";
         List<string> tagsList = new List<string>(); // tags list
 
         Console.Clear();
@@ -79,11 +49,18 @@ class Program
             }
             else if (choice == 3)
             {
-                Console.WriteLine("saving to file (not implemented yet)");
+                Console.WriteLine("saving to file...");
+                File.WriteAllLines(fileName, tagsList);
+
             }
             else if (choice == 4)
             {
-                Console.WriteLine("loading from file (not implemented yet)");
+                Console.WriteLine("loading from file...");
+                if (File.Exists(fileName))
+                {
+                    string[] savedTags = File.ReadAllLines(fileName);
+                    tagsList = new List<string>(savedTags);
+                }
             }
             else if (choice == 5)
             {
