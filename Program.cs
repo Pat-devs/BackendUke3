@@ -4,6 +4,21 @@ class Program
 {
     static void Main(string[] args)
     {
+
+        // Basic write to file example:
+
+        //List<string> testList = new List<string>(); 
+        // testList.Add("hei");
+
+        //File.WriteAllLines("myfile.txt", testList);
+
+
+        Console.WriteLine(bigData);
+
+        Console.ReadLine();
+
+
+
         List<string> tagsList = new List<string>(); // tags list
 
         Console.Clear();
