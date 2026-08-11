@@ -4,19 +4,24 @@ class Program
 {
     static void Main(string[] args)
     {
-        Person personJohn = new Person("John", 20); // invoke the constructor of the person class
+        // receiving user input tags, example:
+        string userInputTags = "coffee, tea,milk";
 
-        // personJohn.InstanceGreeter();
+        // process the tags list and store it as a more useful type
+        string[] tagsArray = userInputTags.Split(",");
 
-        Person personAnna = new Person("Anna", 30);
+        // use a list to store the clean tags:
+        List<string> tagsList = new List<string>();
 
-        personAnna.Name = "Hanna";
+        foreach (string tag in tagsArray)
+        {
+            // clean the tag
+            string cleanTag = tag.Trim();
 
-        personAnna.InstanceGreeter();
+            tagsList.Add(cleanTag);
+        }
 
-        BankAccount bankAccount = new BankAccount(personAnna.Name);
-
-        bankAccount.ShowBalance();
+        Console.WriteLine(tagsList);
     }
 }
 
