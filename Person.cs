@@ -1,23 +1,35 @@
 class Person
 {
-    // "variables that belong to a class" are refered to as "properties"
-
-    public string Name { get; set; } // variables have special get & set methods (to be explained later this week :)
-    private int age { get; set; }
-
-    // constructor method is a special method that runs when we create an instance of the class. It is used to configure (or give data to) the instance we create with the new keyword.
-    public Person(string name, int _age) // a constructor method does not have return value nor type
+    public string Name { get; set; }
+    
+    private int age;
+    public int Age
+    { 
+        get { return age; } 
+        set
+        {
+            if (value < 1 || value > 150)
+            {
+                // we usually throw an error, this is an simplification:
+                throw new ArgumentException("Age must be between 1 and 150");
+            }
+  
+                age = value;
+        }   
+    }
+    public Person(string name, int _age) 
     {
-        // here we run our "instantiation code"
         Console.WriteLine("creating a new person...");
         
-        Name = name;
-        age = _age; // we cannot use age both here an as an instance property name, so we add a _ infront of age to make it separate.
-
-        //Console.WriteLine(age);
+        // check if age is valid range
+        if (_age >= 1 && _age <= 150)
+        {
+            Name = name;
+            Age = _age;
+        }
     }
 
-    public void InstanceGreeter() // non-static method (also known as an instance method)
+    public void InstanceGreeter() 
     {
         Console.WriteLine("Hi my name is " + Name + ", and i am " + age + " years old.");
     }
