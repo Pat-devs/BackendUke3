@@ -1,22 +1,7 @@
 class Person
 {
     public string Name { get; set; }
-    
-    private int age;
-    public int Age
-    { 
-        get { return age; } 
-        set
-        {
-            if (value < 1 || value > 150)
-            {
-                // we usually throw an error, this is an simplification:
-                throw new ArgumentException("Age must be between 1 and 150");
-            }
-  
-                age = value;
-        }   
-    }
+    private int age { get; set; }
     public Person(string name, int _age) 
     {
         Console.WriteLine("creating a new person...");
@@ -25,7 +10,7 @@ class Person
         if (_age >= 1 && _age <= 150)
         {
             Name = name;
-            Age = _age;
+            age = _age;
         }
     }
 

@@ -10,10 +10,13 @@ class Program
 
         Person personAnna = new Person("Anna", 30);
 
-personAnna.Age = 300; // will throw an error Unhandled exception. System.ArgumentException: Age must be between 1 and 150
         personAnna.Name = "Hanna";
 
         personAnna.InstanceGreeter();
+
+        BankAccount bankAccount = new BankAccount(personAnna.Name);
+
+        bankAccount.ShowBalance();
     }
 }
 
