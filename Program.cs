@@ -12,8 +12,24 @@ class Program
 
         //File.WriteAllLines("myfile.txt", testList);
 
+        // Basic read from file 
+        // first check if file exists
+        if (File.Exists("somefile.txt"))
+        {
+            string[] fileContents = File.ReadAllLines("somefile.txt");
+            
+            foreach (string item in fileContents)
+            {
+                Console.WriteLine(item);
+            }
 
-        Console.WriteLine(bigData);
+        }
+        else
+        {
+            Console.WriteLine("File does not exist!");
+        }
+
+        
 
         Console.ReadLine();
 
