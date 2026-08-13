@@ -15,7 +15,7 @@
 ### TagPrinter
  - Prints tags to the user
 
-### TagService (often also known as the "Controller") (todo)
+### TagService (often also known as the "Controller")
  - a class that does business logic
 
 ### TagRepository (todo)

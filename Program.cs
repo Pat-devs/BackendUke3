@@ -6,6 +6,8 @@ class Program
     {
         // create instance of the TagService
         TagService tagService = new TagService();
+        // create an instance of the TagRepository
+        TagRepository tagRepository = new TagRepository();
 
         string fileName = "tags.txt";
         List<TagModel> tagsList = new List<TagModel>(); // tags list
@@ -34,8 +36,6 @@ class Program
             {
                 Console.WriteLine("Enter a tag, or tags separated by comma");
                 string userInputTags = Console.ReadLine(); // f.eks "Coffee" eller "tea, coffe, milk"
-
-                // 1. parse the tags
                 tagsList = tagService.ParseTags(userInputTags);    
             }
             else if (choice == 2)
@@ -45,17 +45,7 @@ class Program
             else if (choice == 3)
             {
                 Console.WriteLine("saving to file...");
-                // before writning to the file we need convert the list of objects to a list of strings
-
-                List<string> lines = new List<string>();
-
-                foreach (TagModel tag in tagsList)
-                {
-                    lines.Add(tag.Name);
-                }
-
-                File.WriteAllLines(fileName, lines);
-
+                tagRepository.Save(tagsList);
             }
             else if (choice == 4)
             {
