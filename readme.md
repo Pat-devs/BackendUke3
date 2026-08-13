@@ -18,7 +18,7 @@
 ### TagService (often also known as the "Controller")
  - a class that does business logic
 
-### TagRepository (todo)
+### TagRepository
  - a class that saves and loads data
 
 ### Program

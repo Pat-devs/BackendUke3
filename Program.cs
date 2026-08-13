@@ -9,13 +9,11 @@ class Program
         // create an instance of the TagRepository
         TagRepository tagRepository = new TagRepository();
 
-        string fileName = "tags.txt";
         List<TagModel> tagsList = new List<TagModel>(); // tags list
 
-        Console.Clear();
 
         // Tag printer UI:
-
+        Console.Clear();
         bool running = true;
 
         while (running)
@@ -50,19 +48,7 @@ class Program
             else if (choice == 4)
             {
                 Console.WriteLine("loading from file...");
-                if (File.Exists(fileName))
-                {
-                    string[] savedTags = File.ReadAllLines(fileName);
-
-                    List<string> lines = new List<string>();
-                    lines = new List<string>(savedTags);
-
-                    foreach (string line in lines)
-                    {
-                        TagModel tag = new TagModel(line);
-                        tagsList.Add(tag);
-                    }
-                }
+                tagsList = tagRepository.Load();
             }
             else if (choice == 5)
             {
@@ -72,5 +58,3 @@ class Program
         }
     }
 }
-
-

@@ -16,4 +16,24 @@ class TagRepository
 
         File.WriteAllLines(fileName, lines);
     }
+    public List<TagModel> Load()
+    {
+        List<TagModel> tagsList = new List<TagModel>();
+
+        if (File.Exists(fileName))
+        {
+            string[] savedTags = File.ReadAllLines(fileName);
+
+            List<string> lines = new List<string>();
+            lines = new List<string>(savedTags);
+
+            foreach (string line in lines)
+            {
+                TagModel tag = new TagModel(line);
+                tagsList.Add(tag);
+            }
+        }
+
+        return tagsList;
+    }
 }
