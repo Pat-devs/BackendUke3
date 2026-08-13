@@ -5,7 +5,7 @@ class Program
     static void Main(string[] args)
     {
         string fileName = "tags.txt";
-        List<string> tagsList = new List<string>(); // tags list
+        List<TagModel> tagsList = new List<TagModel>(); // tags list
 
         Console.Clear();
 
@@ -36,11 +36,13 @@ class Program
                 string[] tagsArray = userInputTags.Split(",");
 
 
-                foreach(string tag in tagsArray)
+                foreach(string tagInput in tagsArray)
                 {
-                    string cleanedTag = tag.Trim();
+                    string cleanedTag = tagInput.Trim();
                     
-                    tagsList.Add(cleanedTag);
+                    // after cleaning we use the userdata to construct a new instance modelled after the TagModel class
+                    TagModel tag = new TagModel(cleanedTag);
+                    tagsList.Add(tag);
                 }
             }
             else if (choice == 2)
@@ -50,7 +52,16 @@ class Program
             else if (choice == 3)
             {
                 Console.WriteLine("saving to file...");
-                File.WriteAllLines(fileName, tagsList);
+                // before writning to the file we need convert the list of objects to a list of strings
+
+                List<string> lines = new List<string>();
+
+                foreach (TagModel tag in tagsList)
+                {
+                    lines.Add(tag.Name);
+                }
+
+                File.WriteAllLines(fileName, lines);
 
             }
             else if (choice == 4)
@@ -58,8 +69,8 @@ class Program
                 Console.WriteLine("loading from file...");
                 if (File.Exists(fileName))
                 {
-                    string[] savedTags = File.ReadAllLines(fileName);
-                    tagsList = new List<string>(savedTags);
+                    //string[] savedTags = File.ReadAllLines(fileName);
+                    //tagsList = new List<string>(savedTags);
                 }
             }
             else if (choice == 5)

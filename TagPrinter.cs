@@ -1,17 +1,17 @@
 class TagPrinter
 {
-    public static void Print(string tag) // prints a single tag
+    public static void Print(TagModel tag) // prints a single tag
     {
-        Console.WriteLine("Tag: #" + tag);
+        Console.WriteLine("Tag: #" + tag.Name);
     }
 
-    public static void Print(List<string> tags) // prints a list of tags
+    public static void Print(List<TagModel> tags) // prints a list of tags
     {
         Console.WriteLine("Tags: ");
 
-        foreach(string tag in tags)
+        foreach(TagModel tag in tags)
         {
-            Console.WriteLine("Tag: #" + tag);
+            Console.WriteLine("Tag: #" + tag.Name);
         }
     }
 }

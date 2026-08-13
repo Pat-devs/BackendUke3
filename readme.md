@@ -7,3 +7,5 @@
 - Load tags from file
 - Exit
 
+### Tag 
+- String
