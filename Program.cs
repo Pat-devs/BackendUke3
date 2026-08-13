@@ -4,6 +4,9 @@ class Program
 {
     static void Main(string[] args)
     {
+        // create instance of the TagService
+        TagService tagService = new TagService();
+
         string fileName = "tags.txt";
         List<TagModel> tagsList = new List<TagModel>(); // tags list
 
@@ -33,17 +36,7 @@ class Program
                 string userInputTags = Console.ReadLine(); // f.eks "Coffee" eller "tea, coffe, milk"
 
                 // 1. parse the tags
-                string[] tagsArray = userInputTags.Split(",");
-
-
-                foreach(string tagInput in tagsArray)
-                {
-                    string cleanedTag = tagInput.Trim();
-                    
-                    // after cleaning we use the userdata to construct a new instance modelled after the TagModel class
-                    TagModel tag = new TagModel(cleanedTag);
-                    tagsList.Add(tag);
-                }
+                tagsList = tagService.ParseTags(userInputTags);    
             }
             else if (choice == 2)
             {
