@@ -69,8 +69,16 @@ class Program
                 Console.WriteLine("loading from file...");
                 if (File.Exists(fileName))
                 {
-                    //string[] savedTags = File.ReadAllLines(fileName);
-                    //tagsList = new List<string>(savedTags);
+                    string[] savedTags = File.ReadAllLines(fileName);
+
+                    List<string> lines = new List<string>();
+                    lines = new List<string>(savedTags);
+
+                    foreach (string line in lines)
+                    {
+                        TagModel tag = new TagModel(line);
+                        tagsList.Add(tag);
+                    }
                 }
             }
             else if (choice == 5)
